@@ -694,12 +694,11 @@
 					<h3 data-target="#collapse_ft_1">Quick Links</h3>
 					<div class="collapse dont-collapse-sm" id="collapse_ft_1">
 						<ul class="links">
-							<li><a href="<?php echo base_url(); ?>assets/index.html#0">About us</a></li>
-							<li><a href="<?php echo base_url(); ?>assets/index.html#0">Faq</a></li>
-							<li><a href="<?php echo base_url(); ?>assets/index.html#0">Help</a></li>
-							<li><a href="<?php echo base_url(); ?>assets/index.html#0">My account</a></li>
-							<li><a href="<?php echo base_url(); ?>assets/index.html#0">Create account</a></li>
-							<li><a href="<?php echo base_url(); ?>assets/index.html#0">Contacts</a></li>
+							<li><a href="<?php echo base_url(); ?>assets/index.html#0">Tentang kami</a></li>
+							<li><a href="<?php echo base_url(); ?>assets/index.html#0">Tim kami</a></li>
+							<li><a href="<?php echo base_url(); ?>assets/index.html#0">Blog Artikel</a></li>
+							<li><a href="<?php echo base_url(); ?>assets/index.html#0">Karir</a></li>
+							<li><a href="<?php echo base_url(); ?>assets/index.html#0">Support</a></li>
 						</ul>
 					</div>
 				</div>
@@ -707,12 +706,12 @@
 					<h3 data-target="#collapse_ft_2">Categories</h3>
 					<div class="collapse dont-collapse-sm" id="collapse_ft_2">
 						<ul class="links">
-							<li><a href="<?php echo base_url(); ?>assets/index.html#0">Shops</a></li>
-							<li><a href="<?php echo base_url(); ?>assets/index.html#0">Hotels</a></li>
-							<li><a href="<?php echo base_url(); ?>assets/index.html#0">Restaurants</a></li>
-							<li><a href="<?php echo base_url(); ?>assets/index.html#0">Bars</a></li>
-							<li><a href="<?php echo base_url(); ?>assets/index.html#0">Events</a></li>
-							<li><a href="<?php echo base_url(); ?>assets/index.html#0">Fitness</a></li>
+							<li><a href="<?php echo base_url(); ?>assets/index.html#0">Venue</a></li>
+							<li><a href="<?php echo base_url(); ?>assets/index.html#0">Event</a></li>
+							<li><a href="<?php echo base_url(); ?>assets/index.html#0">Rent Equipment</a></li>
+							<li><a href="<?php echo base_url(); ?>assets/index.html#0">Talent</a></li>
+							<li><a href="<?php echo base_url(); ?>assets/index.html#0">Hotel</a></li>
+							<li><a href="<?php echo base_url(); ?>assets/index.html#0">Transport</a></li>
 						</ul>
 					</div>
 				</div>
@@ -720,9 +719,9 @@
 					<h3 data-target="#collapse_ft_3">Contacts</h3>
 					<div class="collapse dont-collapse-sm" id="collapse_ft_3">
 						<ul class="contacts">
-							<li><i class="ti-home"></i>97845 Baker st. 567<br>Los Angeles - US</li>
-							<li><i class="ti-headphone-alt"></i>+39 06 97240120</li>
-							<li><i class="ti-email"></i><a href="<?php echo base_url(); ?>assets/index.html#0">info@sparker.com</a></li>
+							<li><i class="ti-home"></i>Ruko Inkopal Jl Raya Kramat No. 27 D <br>Jakarta Pusat 12540</li>
+							<li><i class="ti-headphone-alt"></i> Fanny - 0812 1238 4083 </li>
+							<li><i class="ti-email"></i><a href="<?php echo base_url(); ?>assets/index.html#0">hello@klikvanue.com </a></li>
 						</ul>
 					</div>
 				</div>
@@ -756,24 +755,7 @@
 			<div class="row">
 				<div class="col-lg-6">
 					<ul id="footer-selector">
-						<li>
-							<div class="styled-select" id="lang-selector">
-								<select>
-									<option value="English" selected>English</option>
-									<option value="French">French</option>
-									<option value="Spanish">Spanish</option>
-									<option value="Russian">Russian</option>
-								</select>
-							</div>
-						</li>
-						<li>
-							<div class="styled-select" id="currency-selector">
-								<select>
-									<option value="US Dollars" selected>US Dollars</option>
-									<option value="Euro">Euro</option>
-								</select>
-							</div>
-						</li>
+						
 						<li><img src="<?php echo base_url(); ?>assets/img/cards_all.svg" alt=""></li>
 					</ul>
 				</div>
@@ -781,7 +763,7 @@
 					<ul id="additional_links">
 						<li><a href="<?php echo base_url(); ?>assets/index.html#0">Terms and conditions</a></li>
 						<li><a href="<?php echo base_url(); ?>assets/index.html#0">Privacy</a></li>
-						<li><span>© 2020 Sparker</span></li>
+						<li><span>© 2021 KlikVenue</span></li>
 					</ul>
 				</div>
 			</div>
