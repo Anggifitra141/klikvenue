@@ -2815,7 +2815,7 @@ a.box_feat h3 {
     border-radius: 3px;
 }
 .strip a.wish_bt:after {
-    font-family: "Poppins";
+    font-family: "ElegantIcons";
     content: "\e012";
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -3250,7 +3250,7 @@ a.address:hover {
     border-radius: 3px;
 }
 .box_list a.wish_bt:after {
-    font-family: "Poppins";
+    font-family: "ElegantIcons";
     content: "\e030";
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -3546,7 +3546,7 @@ a#filters_col_bt {
     font-weight: 600;
 }
 a#filters_col_bt:before {
-    font-family: "Poppins";
+    font-family: "ElegantIcons";
     content: "\66";
     font-size: 26px;
     font-size: 1.625rem;
@@ -7240,7 +7240,7 @@ ul.list_ok li {
     margin-bottom: 10px;
 }
 ul.list_ok li:before {
-    font-family: "Poppins";
+    font-family: "ElegantIcons";
     content: "\52";
     position: absolute;
     left: 0;
@@ -7261,7 +7261,7 @@ ul.bullets li {
 ul.bullets li:before {
     font-style: normal;
     font-weight: normal;
-    font-family: "Poppins";
+    font-family: "ElegantIcons";
     font-size: 14px;
     font-size: 0.875rem;
     content: "\e052";
