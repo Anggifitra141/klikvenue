@@ -4275,7 +4275,7 @@ section#reviews {
     position: relative;
 }
 .dropdown a:after {
-    font-family: "Poppins";
+    font-family: "ElegantIcons";
     content: "\33";
     font-size: 24px;
     font-size: 1.5rem;

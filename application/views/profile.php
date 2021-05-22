@@ -351,7 +351,7 @@
 							</div>
 
 							<div class="dropdown">
-								<a href="detail-carousel.html#" data-toggle="dropdown">Guests <span id="qty_total">0</span></a>
+								<a href="" data-toggle="dropdown">Guests <span id="qty_total">0</span></a>
 								<div class="dropdown-menu dropdown-menu-right">
 									<div class="dropdown-menu-content">
 										<label>Adults</label>
@@ -372,6 +372,11 @@
 								</div>
 							</div>
 							<!-- /dropdown -->
+
+              <div class="form-group" >
+								<input class="form-control" type="number" name="room" placeholder="Total Room ">
+								<i class="icon-home-outline"></i>
+							</div>
 
 							<div class="form-group clearfix">
 								<div class="custom-select-form">

@@ -330,7 +330,9 @@
 		</div>
 		<!-- /bg_color_1 -->
 
+    
 		<div class="container margin_60_35">
+      <!--
 			<div class="main_title_3">
 				<span></span>
 				<h2>Produk ter-hits saat ini</h2>
@@ -425,7 +427,7 @@
 						</figure>
 					</a>
 				</div>
-			</div>			<!-- /row -->
+			</div>		
 			
 			<div class="main_title_3">
 				<span></span>
@@ -476,8 +478,8 @@
 				</div>
 
 			</div>
-			<!-- /row -->
-			
+      -->
+
 			<div class="main_title_3">
 				<span></span>
 				<h2>Vendor Terpercaya Kami</h2>
@@ -548,7 +550,7 @@
 
 			</div>
 			<!-- /row -->
-		</div>
+		</div> 
 		<!-- /container -->
 		
 		<div class="call_section">
