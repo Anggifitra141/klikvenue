@@ -602,48 +602,7 @@
 					<h2><i class="bg-linear">Ingin buat event tapi gamau ribet ? &emsp;</i></h2><br/>
 					<p style="font-size:1rem;">Dengan KlikVanue kamu dapat menyewa event organizer langsung dari Klikvanue sendiri,<br/> tentunya dengan rentetan pengalaman dalam membuat event yang luar biasa menakjubkan.</p>
 				</div>
-				<div class="row">
-				<div class="col-lg-4 col-sm-6">
-					<a href="grid-listings-filterstop.html" class="grid_item">
-						<figure>
-							<img style="width:100%" src="<?php echo base_url();?>assets/img/product/konser-festival.png" alt="">
-							<div class="info">
-                  <h3>Konser Festival</h3>
-                  <div style="text-align:right; margin-top:-20px;"><i style="" class="icon-left"> </i> </div> 
-                  <small>40 acara</small>  <br/><br/>								     
-							</div>
-						</figure>
-					</a>
-				</div>
-				<!-- /grid_item -->
-				<div class="col-lg-4 col-sm-6">
-					<a href="grid-listings-filterstop.html" class="grid_item">
-						<figure>
-							<img style="width:100%" src="<?php echo base_url();?>assets/img/product/pesta-nikah.png" alt="">
-							<div class="info">
-                  <h3>Pesta Pernikahan</h3>
-                  <div style="text-align:right; margin-top:-20px;"><i style="" class="icon-left"> </i> </div> 
-                  <small>20 Acara</small>  <br/><br/>								     
-							</div>
-						</figure>
-					</a>
-				</div>
-				<!-- /grid_item -->
-				<div class="col-lg-4 col-sm-6">
-					<a href="grid-listings-filterstop.html" class="grid_item">
-						<figure>
-            <img style="width:100%" src="<?php echo base_url();?>assets/img/product/meeting.png" alt="">
-							<div class="info">
-                  <h3>Acara Meeting</h3>
-                  <div style="text-align:right; margin-top:-20px;"><i style="" class="icon-left"> </i> </div> 
-                  <small>50 acara</small>  <br/><br/>								     
-							</div>
-						</figure>
-					</a>
-				</div>
-				<!-- /grid_item -->
-			</div>
-			<!-- /row -->
+				<p class="text-center add_top_30 wow bounceIn" data-wow-delay="0.5" style="visibility: visible; animation-name: bounceIn;"><a href="account.html" class="btn_1 rounded"><i class="icon-mail-alt"></i>  Ask Proposal</a></p>
 			</div>
 			<!-- /container -->	
 		</div>
