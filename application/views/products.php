@@ -161,7 +161,7 @@
 	$(document).ready(function() {
 
 		$.ajax({
-			url: "<?php echo site_url('products/get_products_list') ?>",
+			url: "<?php echo site_url('products/get_partner_list') ?>",
 			type: "GET",
 			dataType: "JSON",
 			success: function(data) {
@@ -176,21 +176,23 @@
 									<a href="<?php echo site_url('profile') ?>"><img src="<?php echo base_url(); ?>assets/img/location_1.jpg" class="img-fluid" alt="">
 										<div class="read_more"><span>Read more</span></div>
 									</a>
-									<small>Bar</small>
+									<small>` + value.partner_category + `</small>
 								</figure>
 							</div>
 							<div class="col-lg-7">
 								<div class="wrapper">
-									<a href="#0" class="btn-sm btn-flat wish_bt"></a>
 									<h3><a href="<?php echo site_url('profile') ?>">` + value.name + `</a></h3>
 									<small>` + value.city + `, ` + value.province + `</small>
 									<p>` + value.description + `</p>
-									<a href="` + value.maps + `"> <i class="ti-map"></i> Get directions</a>
+									<a href="` + value.maps + `"> <i class="ti-map"></i> Lihat di maps</a>
+									
 								</div>
 								<ul>
-									<li><span class="loc_open">Now Open</span></li>
 									<li>
-										<div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div>
+										<span class="loc_open">Now Open</span>
+									</li>
+									<li>
+										<a href="<?php echo site_url('products/partner/')?>`+value.slug+`"><div class="score"><strong>Pesan Sekarang</strong></div></a>
 									</li>
 								</ul>
 							</div>
