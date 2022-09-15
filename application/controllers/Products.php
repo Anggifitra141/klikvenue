@@ -44,4 +44,14 @@ class Products extends CI_Controller {
 		echo json_encode($query);
 	}
 
+	public function get_partner_product($partner_id)
+	{
+		$this->db->select('*');
+		$this->db->from('product');
+		$this->db->where('partner_id', $partner_id);
+		$query = $this->db->get()->result();
+
+		echo json_encode($query);
+	}
+
 }

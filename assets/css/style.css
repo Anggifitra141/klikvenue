@@ -7253,6 +7253,7 @@ ul.bullets {
     line-height: 1.8;
     margin: 0;
     padding: 0;
+	column-count: 2;
 }
 ul.bullets li {
     position: relative;

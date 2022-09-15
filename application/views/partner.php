@@ -65,10 +65,10 @@
 				</div>
 				<p id="partner_description"></p>
 				<div id="partner_facility">
-					
+
 					<div class="row add_bottom_30">
-						<div class="col-lg-6">
-						<h5 class="add_bottom_15">Fasilitas</h5>
+						<div class="col-lg-12">
+							<h5 class="add_bottom_15">Fasilitas</h5>
 							<div id="facility"> </div>
 						</div>
 					</div>
@@ -76,68 +76,9 @@
 
 				<!-- /row -->
 				<hr>
-				<div class="room_type first">
-					<div class="row">
-						<div class="col-md-4">
-							<img src="<?php echo base_url(); ?>assets/img/gallery/hotel_list_1.jpg" class="img-fluid" alt="">
-						</div>
-						<div class="col-md-8">
-							<h4>Single Room</h4>
-							<p>Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.</p>
-							<ul class="hotel_facilities">
-								<li><img src="<?php echo base_url(); ?>assets/img/hotel_facilites_icon_2.svg" alt="">Single Bed</li>
-								<li><img src="<?php echo base_url(); ?>assets/img/hotel_facilites_icon_4.svg" alt="">Free Wifi</li>
-								<li><img src="<?php echo base_url(); ?>assets/img/hotel_facilites_icon_5.svg" alt="">Shower</li>
-								<li><img src="<?php echo base_url(); ?>assets/img/hotel_facilites_icon_7.svg" alt="">Air Condition</li>
-								<li><img src="<?php echo base_url(); ?>assets/img/hotel_facilites_icon_8.svg" alt="">Hairdryer</li>
-							</ul>
-						</div>
-					</div>
-					<!-- /row -->
-				</div>
-				<!-- /rom_type -->
-				<div class="room_type alternate">
-					<div class="row">
-						<div class="col-md-4">
-							<img src="<?php echo base_url(); ?>assets/img/gallery/hotel_list_2.jpg" class="img-fluid" alt="">
-						</div>
-						<div class="col-md-8">
-							<h4>Double Room</h4>
-							<p>Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.</p>
-							<ul class="hotel_facilities">
-								<li><img src="<?php echo base_url(); ?>assets/img/hotel_facilites_icon_3.svg" alt="">Double Bed</li>
-								<li><img src="<?php echo base_url(); ?>assets/img/hotel_facilites_icon_4.svg" alt="">Free Wifi</li>
-								<li><img src="<?php echo base_url(); ?>assets/img/hotel_facilites_icon_6.svg" alt="">Bathtub</li>
-								<li><img src="<?php echo base_url(); ?>assets/img/hotel_facilites_icon_7.svg" alt="">Air Condition</li>
-								<li><img src="<?php echo base_url(); ?>assets/img/hotel_facilites_icon_8.svg" alt="">Hairdryer</li>
-							</ul>
-						</div>
-					</div>
-					<!-- /row -->
-				</div>
-				<!-- /rom_type -->
-				<div class="room_type last">
-					<div class="row">
-						<div class="col-md-4">
-							<img src="<?php echo base_url(); ?>assets/img/gallery/hotel_list_3.jpg" class="img-fluid" alt="">
-						</div>
-						<div class="col-md-8">
-							<h4>Suite Room</h4>
-							<p>Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.</p>
-							<ul class="hotel_facilities">
-								<li><img src="<?php echo base_url(); ?>assets/img/hotel_facilites_icon_3.svg" alt="">King size Bed</li>
-								<li><img src="<?php echo base_url(); ?>assets/img/hotel_facilites_icon_4.svg" alt="">Free Wifi</li>
-								<li><img src="<?php echo base_url(); ?>assets/img/hotel_facilites_icon_6.svg" alt="">Bathtub</li>
-								<li><img src="<?php echo base_url(); ?>assets/img/hotel_facilites_icon_7.svg" alt="">Air Condition</li>
-								<li><img src="<?php echo base_url(); ?>assets/img/hotel_facilites_icon_9.svg" alt="">Swimming pool</li>
-								<li><img src="<?php echo base_url(); ?>assets/img/hotel_facilites_icon_3.svg" alt="">Hairdryer</li>
-							</ul>
-						</div>
-					</div>
-					<!-- /row -->
-				</div>
-				<!-- /rom_type -->
-				<hr>
+				<div id="partner_product"></div>
+
+
 				<h3>Prices</h3>
 				<table class="table table-striped add_bottom_45">
 					<tbody>
@@ -401,26 +342,97 @@
 			type: "GET",
 			dataType: "JSON",
 			success: function(data) {
-			
+
 				$('#partner_name').text(data.name);
 				$('#partner_address').html("<a href='" + data.maps + "'> " + data.city + ", " + data.province + " </a>");
 				$('#partner_description').text(data.description);
-				
-				var facility = "";
-				facility += "<ul class='bullets'>";
 
-				$.each(JSON.parse(data.facility), function (index1, item1) {
+				if (data.facility != "") {
+					var facility = "";
+					facility += "<ul class='bullets'>";
+
+					$.each(JSON.parse(data.facility), function(index1, item1) {
 						facility += "<li>" + item1 + "</li>";
-				});
-				facility += "</ul>";
+					});
+					facility += "</ul>";
 
-				$("#facility").append(facility);
+					$("#facility").append(facility);
+				} else {
+					$('#partner_facility').hide();
+				}
 
-				console.log(data);
+				get_product(data.id);
 			},
 			error: function(jqXHR, textStatus, errorThrown) {
 				alert('Error get data from ajax');
 			}
 		});
 	})
+
+	function get_product(partner_id) {
+		$.ajax({
+			url: "<?php echo site_url('products/get_partner_product') ?>/" + partner_id,
+			type: "GET",
+			dataType: "JSON",
+			success: function(data) {
+				if ($.trim(data)) {
+					console.log(data);
+					var product = "";
+					$.each(data, function(i, value) {
+						var price = value.price;
+						product += `<div class="room_type">
+														<div class="row">
+															<div class="col-md-4">
+																<div class="row">
+																	<div class="col-md-12">
+																		<img src="<?php echo base_url(); ?>assets/img/gallery/hotel_list_1.jpg" class="img-fluid" alt="">
+																	</div>
+																</div>
+																<br>
+																<div class="row">
+																	<div class="col-md-12">
+																		<div class="opening" style="padding:10px; text-align:center;">
+																			<h5>Harga Mulai</h5>
+																			<strong style="font-size:16px;"> IDR `+ value.price+` </strong><br>
+																			Per ` + value.unit + `
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-8">
+																<h4>Single Room</h4>
+																<p>Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.</p>
+																<h6>Termasuk</h6>
+																<ul class="hotel_facilities">
+																	<li><span class="icon-circle"></span> Single Bed</li>
+																	<li><span class="icon-circle"></span> Single Bed</li>
+																	<li><span class="icon-circle"></span> Single Bed</li>
+																	<li><span class="icon-circle"></span> Single Bed</li>
+																	<li><span class="icon-circle"></span> Single Bed</li>
+																</ul>
+																<br>
+																<h6>Perlengkapan</h6>
+																<ul class="hotel_facilities">
+																	<li><span class="icon-circle"></span> Single Bed</li>
+																	<li><span class="icon-circle"></span> Single Bed</li>
+																	<li><span class="icon-circle"></span> Single Bed</li>
+																	<li><span class="icon-circle"></span> Single Bed</li>
+																	<li><span class="icon-circle"></span> Single Bed</li>
+																</ul>
+
+
+															</div>
+														</div>
+														<!-- /row -->
+													</div>
+												<hr>`;
+					});
+
+
+
+					$('#partner_product').html(product)
+				}
+			}
+		});
+	}
 </script>
