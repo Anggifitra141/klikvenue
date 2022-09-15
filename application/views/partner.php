@@ -65,27 +65,15 @@
 				</div>
 				<p id="partner_description"></p>
 				<div id="partner_facility">
+					
+					<div class="row add_bottom_30">
+						<div class="col-lg-6">
+						<h5 class="add_bottom_15">Fasilitas</h5>
+							<div id="facility"> </div>
+						</div>
+					</div>
+				</div>
 
-				</div>
-				<h5 class="add_bottom_15">Amenities</h5>
-				<div class="row add_bottom_30">
-					<div class="col-lg-6">
-						<ul class="bullets">
-							<li>Dolorem mediocritatem</li>
-							<li>Mea appareat</li>
-							<li>Prima causae</li>
-							<li>Singulis indoctum</li>
-						</ul>
-					</div>
-					<div class="col-lg-6">
-						<ul class="bullets">
-							<li>Timeam inimicus</li>
-							<li>Oportere democritum</li>
-							<li>Cetero inermis</li>
-							<li>Pertinacia eum</li>
-						</ul>
-					</div>
-				</div>
 				<!-- /row -->
 				<hr>
 				<div class="room_type first">
@@ -413,9 +401,22 @@
 			type: "GET",
 			dataType: "JSON",
 			success: function(data) {
+			
 				$('#partner_name').text(data.name);
 				$('#partner_address').html("<a href='" + data.maps + "'> " + data.city + ", " + data.province + " </a>");
 				$('#partner_description').text(data.description);
+				
+				var facility = "";
+				facility += "<ul class='bullets'>";
+
+				$.each(JSON.parse(data.facility), function (index1, item1) {
+						facility += "<li>" + item1 + "</li>";
+				});
+				facility += "</ul>";
+
+				$("#facility").append(facility);
+
+				console.log(data);
 			},
 			error: function(jqXHR, textStatus, errorThrown) {
 				alert('Error get data from ajax');
