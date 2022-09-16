@@ -143,13 +143,7 @@
 		<!-- /aside -->
 
 		<div class="col-lg-9">
-
-			<div id="product_list">
-
-			</div>
-
-
-
+			<div id="partner_list"></div>
 			<p class="text-center"><a href="row-listings-filterscol.html#0" class="btn_1 rounded add_top_30">Load more</a></p>
 		</div>
 		<!-- /col -->
@@ -161,14 +155,14 @@
 	$(document).ready(function() {
 
 		$.ajax({
-			url: "<?php echo site_url('products/get_partner_list') ?>",
+			url: "<?php echo site_url('search/get_partner_list') ?>",
 			type: "GET",
 			dataType: "JSON",
 			success: function(data) {
-				var products = '';
+				var partner = '';
 
 				$.each(data, function(i, value) {
-					products += `
+					partner += `
 					<div class="strip list_view">
 						<div class="row no-gutters">
 							<div class="col-lg-5">
@@ -192,14 +186,14 @@
 										<span class="loc_open">Now Open</span>
 									</li>
 									<li>
-										<a href="<?php echo site_url('products/partner/')?>`+value.slug+`"><div class="score"><strong>Pesan Sekarang</strong></div></a>
+										<a href="<?php echo site_url('partner/')?>`+value.slug+`"><div class="score"><strong>Pesan Sekarang</strong></div></a>
 									</li>
 								</ul>
 							</div>
 						</div>
 					</div>`;
 				});
-				$('#product_list').html(products)
+				$('#partner_list').html(partner)
 			},
 			error: function(jqXHR, textStatus, errorThrown) {
 				alert('Error get data from ajax');

@@ -43,7 +43,7 @@
 						
 						<div class="tab-content">
 							<div class="tab-pane fade show active" id="tab_1" role="tabpanel" aria-labelledby="tab_1">
-								<form method="post" action="<?php echo site_url('products'); ?>">
+								<form method="post" action="<?php echo site_url('search'); ?>">
 									<div class="row no-gutters custom-search-input-2">
 										<div class="col-lg-4">
 											<div class="form-group">

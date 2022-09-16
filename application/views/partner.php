@@ -74,34 +74,119 @@
 					</div>
 				</div>
 
-				<!-- /row -->
-				<hr>
 				<div id="partner_product"></div>
-
-
-				<h3>Prices</h3>
-				<table class="table table-striped add_bottom_45">
-					<tbody>
-						<tr>
-							<td>Low (from 23/03 to 31/05)</td>
-							<td>140$</td>
-						</tr>
-						<tr>
-							<td>Middle (from 23/03 to 31/05)</td>
-							<td>180$</td>
-						</tr>
-						<tr>
-							<td>High (from 23/03 to 31/05)</td>
-							<td>200$</td>
-						</tr>
-					</tbody>
-				</table>
-				<hr>
-				<h3>Location</h3>
-				<div id="map" class="map map_single add_bottom_45"></div>
 				<!-- End Map -->
 			</section>
 			<!-- /section -->
+			<section id="term">
+				<div class="category_filter">
+
+					<label class="container_radio">Ketentuan Pemesanan
+						<input type="radio" id="order-terms" name="categories_filter" value="order-terms" checked data-filter=".order-terms" class="selected">
+						<span class="checkmark"></span>
+					</label>
+					<label class="container_radio">Ketentuan Pembayaran
+						<input type="radio" id="payment-terms" name="categories_filter" value="payment-terms" data-filter=".payment-terms">
+						<span class="checkmark"></span>
+					</label>
+					</label>
+					<label class="container_radio">Ketentuan Pembatalan
+						<input type="radio" id="cancel-terms" name="categories_filter" value="cancel-terms" data-filter=".cancel-terms">
+						<span class="checkmark"></span>
+					</label>
+				</div>
+				<div class="isotope-wrapper">
+
+					<div class="strip list_view isotope-item order-terms" style="min-height:0px;">
+						<div class="row no-gutters">
+							<div class="col-lg-12">
+								<div class="wrapper">
+									<style>
+										.strip a.wish_bt:after {
+											font-family: "ElegantIcons";
+											content: "\69";
+										}
+
+										.strip a.wish_bt.liked:after {
+											content: "\e059";
+											color: #FFB31C;
+										}
+
+										.strip a.wish_bt:hover:after {
+											content: "\e059";
+											color: #fff;
+										}
+									</style>
+									<a class="wish_bt" style=" color: #00966C;"></a>
+									<h3>Ketentuan Pemesanan</h3><br>
+									<p>Dicam diceret ut ius, no epicuri dissentiet philosophia vix. Id usu zril tacimates neglegentur. Eam id legimus torquatos cotidieque, usu decore percipitur definitiones ex, nihil utinam recusabo mel no.</p>
+									<hr>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /strip list_view -->
+					<div class="strip list_view isotope-item payment-terms" style="min-height:0px;">
+						<div class="row no-gutters">
+							<div class="col-lg-12">
+								<div class="wrapper">
+									<style>
+										.strip a.wish_bt:after {
+											font-family: "ElegantIcons";
+											content: "\69";
+										}
+
+										.strip a.wish_bt.liked:after {
+											content: "\e059";
+											color: #FFB31C;
+										}
+
+										.strip a.wish_bt:hover:after {
+											content: "\e059";
+											color: #fff;
+										}
+									</style>
+									<a class="wish_bt" style=" color: #00966C;"></a>
+									<h3>Ketentuan Pembayaran</h3><br>
+									<p>Dicam diceret ut ius, no epicuri dissentiet philosophia vix. Id usu zril tacimates neglegentur. Eam id legimus torquatos cotidieque, usu decore percipitur definitiones ex, nihil utinam recusabo mel no.</p>
+									<hr>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /strip list_view -->
+					<div class="strip list_view isotope-item cancel-terms" style="min-height:0px;">
+						<div class="row no-gutters">
+							<div class="col-lg-12">
+								<div class="wrapper">
+									<style>
+										.strip a.wish_bt:after {
+											font-family: "ElegantIcons";
+											content: "\69";
+										}
+
+										.strip a.wish_bt.liked:after {
+											content: "\e059";
+											color: #FFB31C;
+										}
+
+										.strip a.wish_bt:hover:after {
+											content: "\e059";
+											color: #fff;
+										}
+									</style>
+									<a class="wish_bt" style=" color: #00966C;"></a>
+									<h3>Ketentuan Pembatalan</h3><br>
+									<p>Dicam diceret ut ius, no epicuri dissentiet philosophia vix. Id usu zril tacimates neglegentur. Eam id legimus torquatos cotidieque, usu decore percipitur definitiones ex, nihil utinam recusabo mel no.</p>
+									<hr>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /isotope-wrapper-->
+
+			</section>
 
 			<section id="reviews">
 				<h2>Reviews</h2>
@@ -109,8 +194,7 @@
 					<div class="row">
 						<div class="col-lg-3">
 							<div id="review_summary">
-								<strong>8.5</strong>
-								<em>Superb</em>
+								<strong><small><i class="icon_star" style="color:#FFB31C;"></i></small> 4,9</strong>
 								<small>Based on 4 reviews</small>
 							</div>
 						</div>
@@ -336,9 +420,9 @@
 
 <script>
 	$(document).ready(function() {
-
+		var slug = "<?php echo $this->uri->segment(3); ?>";
 		$.ajax({
-			url: "<?php echo site_url('products/get_partner/') . $slug ?>",
+			url: "<?php echo site_url('partner/get_partner/') . $slug ?>",
 			type: "GET",
 			dataType: "JSON",
 			success: function(data) {
@@ -367,65 +451,86 @@
 				alert('Error get data from ajax');
 			}
 		});
+
+		$('.isotope-wrapper').isotope({
+			filter: '.order-terms'
+		});
+		$('.category_filter').on('click', 'input', 'change', function() {
+			var selector = $(this).attr('data-filter');
+			$('.isotope-wrapper').isotope({
+				filter: selector
+			});
+		});
+
 	})
+
+	function number_format(num) {
+		return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
+	}
 
 	function get_product(partner_id) {
 		$.ajax({
-			url: "<?php echo site_url('products/get_partner_product') ?>/" + partner_id,
+			url: "<?php echo site_url('partner/get_partner_product') ?>/" + partner_id,
 			type: "GET",
 			dataType: "JSON",
 			success: function(data) {
 				if ($.trim(data)) {
-					console.log(data);
 					var product = "";
 					$.each(data, function(i, value) {
 						var price = value.price;
-						product += `<div class="room_type">
-														<div class="row">
-															<div class="col-md-4">
-																<div class="row">
-																	<div class="col-md-12">
-																		<img src="<?php echo base_url(); ?>assets/img/gallery/hotel_list_1.jpg" class="img-fluid" alt="">
-																	</div>
-																</div>
-																<br>
-																<div class="row">
-																	<div class="col-md-12">
-																		<div class="opening" style="padding:10px; text-align:center;">
-																			<h5>Harga Mulai</h5>
-																			<strong style="font-size:16px;"> IDR `+ value.price+` </strong><br>
-																			Per ` + value.unit + `
-																		</div>
-																	</div>
+						if (value.include != "") {
+							var include = "";
+							include += `<b>Termasuk :</b><ul class="hotel_facilities">`;
+							$.each(JSON.parse(value.include), function(i, val) {
+								include += "<li><span class='icon-check' style='color:#32a067'></span>" + val + "</li>";
+							});
+							include += "</ul>";
+						}
+
+						if (value.equipment != "") {
+							var equipment = "";
+							equipment += `<b>Perlengkapan :</b><ul class="hotel_facilities">`;
+							$.each(JSON.parse(value.equipment), function(i, val) {
+								equipment += "<li><span class='icon-check' style='color:#32a067'></span>" + val + "</li>";
+							});
+							equipment += "</ul>";
+							$("#equipment").append(equipment);
+						}
+
+						product += `<hr><div class="room_type">
+													<div class="row">
+														<div class="col-md-4">
+															<div class="row">
+																<div class="col-md-12">
+																	<img src="<?php echo base_url(); ?>assets/img/gallery/hotel_list_1.jpg" class="img-fluid" alt="">
 																</div>
 															</div>
-															<div class="col-md-8">
-																<h4>Single Room</h4>
-																<p>Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.</p>
-																<h6>Termasuk</h6>
-																<ul class="hotel_facilities">
-																	<li><span class="icon-circle"></span> Single Bed</li>
-																	<li><span class="icon-circle"></span> Single Bed</li>
-																	<li><span class="icon-circle"></span> Single Bed</li>
-																	<li><span class="icon-circle"></span> Single Bed</li>
-																	<li><span class="icon-circle"></span> Single Bed</li>
-																</ul>
-																<br>
-																<h6>Perlengkapan</h6>
-																<ul class="hotel_facilities">
-																	<li><span class="icon-circle"></span> Single Bed</li>
-																	<li><span class="icon-circle"></span> Single Bed</li>
-																	<li><span class="icon-circle"></span> Single Bed</li>
-																	<li><span class="icon-circle"></span> Single Bed</li>
-																	<li><span class="icon-circle"></span> Single Bed</li>
-																</ul>
-
-
+															<br>
+															<div class="row">
+																<div class="col-md-12">
+																	<div class="opening" style="padding:10px; text-align:center;">
+																		<h5>Harga Mulai</h5>
+																		<strong style="font-size:16px;"> IDR ` + number_format(price) + ` </strong><br>
+																		Per ` + value.unit + `
+																	</div>
+																</div>
 															</div>
 														</div>
-														<!-- /row -->
-													</div>
-												<hr>`;
+														<div class="col-md-8">
+															<h4>` + value.name + `</h4>
+															<p>` + value.description + `</p>
+															
+															<div id="include">` + include + `</div>
+															<br>
+															<div id="equipment">` + equipment + `</div>
+
+
+														</div>
+													</div>												
+												</div>
+												`;
+
+
 					});
 
 

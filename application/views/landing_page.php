@@ -23,10 +23,11 @@
 	<link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>assets/css/vendors.css" rel="stylesheet">
+	<link href="<?php echo base_url(); ?>assets/css/tables.css" rel="stylesheet">
 
 	<!-- ALTERNATIVE COLORS CSS -->
 	<link href="index.html#" id="colors" rel="stylesheet">
-	<!-- Jquery --> 
+	<!-- Jquery -->
 	<script src="<?php echo base_url(); ?>assets/js/common_scripts.js"></script>
 </head>
 
@@ -224,6 +225,9 @@
 			});
 		});
 	</script>
+	<!-- SPECIFIC SCRIPTS -->
+	<script src="<?php echo base_url(); ?>assets/js/modernizr_tables.js"></script>
+	<script src="<?php echo base_url(); ?>assets/js/isotope.min.js"></script>
 
 	<!-- COLOR SWITCHER  -->
 	<script src="<?php echo base_url(); ?>assets/js/switcher.js"></script>
