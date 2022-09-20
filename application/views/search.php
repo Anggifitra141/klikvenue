@@ -50,16 +50,7 @@
 					<label for="latest">Latest</label>
 				</div>
 			</li>
-			<li>
-				<div class="layout_view">
-					<a href="row-listings-filterscol.html#0" class="active"><i class="icon-th"></i></a>
-					<a href="row-listings-filterscol.html#0"><i class="icon-th-list"></i></a>
-					<a href="row-listings-filterscol.html#0"><i class="icon-map"></i></a>
-				</div>
-			</li>
-			<li>
-				<a class="btn_map" data-toggle="collapse" href="row-listings-filterscol.html#collapseMap" aria-expanded="false" aria-controls="collapseMap" data-text-swap="Hide map" data-text-original="View on map">View on map</a>
-			</li>
+			
 		</ul>
 	</div>
 	<!-- /container -->
@@ -102,39 +93,21 @@
 						</ul>
 					</div>
 					<div class="filter_type">
-						<h6>Distance</h6>
-						<div class="distance"> Radius around selected destination <span></span> km</div>
-						<input type="range" min="10" max="100" step="10" value="30" data-orientation="horizontal">
+						<h6>Kota</h6>
+						<div class="form-group clearfix">
+							<div class="custom-select-form">
+								<select class="wide">
+									<option>Jabodetabek</option>
+									<option>Jakarta</option>
+									<option>Bogor</option>
+									<option>Depok</option>
+									<option>Tangerang</option>
+									<option>Bekasi</option>
+								</select>
+							</div>
+						</div>
 					</div>
-					<div class="filter_type">
-						<h6>Rating</h6>
-						<ul>
-							<li>
-								<label class="container_check">Superb 9+ <small>21</small>
-									<input type="checkbox">
-									<span class="checkmark"></span>
-								</label>
-							</li>
-							<li>
-								<label class="container_check">Very Good 8+ <small>33</small>
-									<input type="checkbox">
-									<span class="checkmark"></span>
-								</label>
-							</li>
-							<li>
-								<label class="container_check">Good 7+ <small>213</small>
-									<input type="checkbox">
-									<span class="checkmark"></span>
-								</label>
-							</li>
-							<li>
-								<label class="container_check">Pleasant 6+ <small>23</small>
-									<input type="checkbox">
-									<span class="checkmark"></span>
-								</label>
-							</li>
-						</ul>
-					</div>
+					
 				</div>
 				<!--/collapse -->
 			</div>
@@ -167,7 +140,7 @@
 						<div class="row no-gutters">
 							<div class="col-lg-5">
 								<figure>
-									<a href="<?php echo site_url('profile') ?>"><img src="<?php echo base_url(); ?>assets/img/location_1.jpg" class="img-fluid" alt="">
+									<a href="<?php echo site_url('partner/')?>`+value.slug+`"><img src="<?php echo base_url(); ?>assets/img/location_1.jpg" class="img-fluid" alt="">
 										<div class="read_more"><span>Read more</span></div>
 									</a>
 									<small>` + value.partner_category + `</small>
@@ -175,7 +148,7 @@
 							</div>
 							<div class="col-lg-7">
 								<div class="wrapper">
-									<h3><a href="<?php echo site_url('profile') ?>">` + value.name + `</a></h3>
+									<h3><a href="<?php echo site_url('partner/')?>`+value.slug+`">` + value.name + `</a></h3>
 									<small>` + value.city + `, ` + value.province + `</small>
 									<p>` + value.description + `</p>
 									<a href="` + value.maps + `"> <i class="ti-map"></i> Lihat di maps</a>

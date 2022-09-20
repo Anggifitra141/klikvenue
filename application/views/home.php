@@ -43,26 +43,40 @@
 						
 						<div class="tab-content">
 							<div class="tab-pane fade show active" id="tab_1" role="tabpanel" aria-labelledby="tab_1">
-								<form method="post" action="<?php echo site_url('search'); ?>">
+								<form method="get" action="<?php echo site_url('search'); ?>">
 									<div class="row no-gutters custom-search-input-2">
 										<div class="col-lg-4">
 											<div class="form-group">
-												<input class="form-control" type="text" placeholder="Apa yang kamu cari ?">
+											<select class="wide" name="type">
+												<option value="">Apa yang kamu cari ?</option>	
+												<option value="venue">Venue</option>
+												<option value="event">Event</option>
+												<option value="talent">Talent</option>
+											</select>
 												<i class="icon_search"></i>
 											</div>
 										</div>
-										<div class="col-lg-4">
+										<div class="col-lg-3">
 											<div class="form-group">
-												<input class="form-control" type="text" placeholder="Dimana ?">
+												<select class="wide" name="city">
+													<option value="">Dimana ?</option>
+													<option value="jabodetabek">Jabodetabek</option>
+													<option value="jakarta">Jakarta</option>
+													<option value="bogor">Bogor</option>
+													<option value="depok">Depok</option>
+													<option value="tangerang">Tangerang</option>
+													<option value="bekasi">Bekasi</option>
+												</select>
 												<i class="icon_pin_alt"></i>
 											</div>
 										</div>
-										<div class="col-lg-2">
+										<div class="col-lg-3">
 											<div class="form-group">
-												<input class="form-control" type="text" placeholder="Kapan ?">
+												<input class="form-control dates" name="date" type="text" placeholder="Kapan ?">
 												<i class="icon_calendar"></i>
 											</div>
 										</div>
+						
 										<div class="col-lg-2">
 											<input type="submit" value="Search">
 										</div>
@@ -78,7 +92,6 @@
 		</div>
 	</section>
 	<!-- /hero_single -->
-
 
 	<div class="main_categories">
 		<div class="container">
@@ -247,6 +260,130 @@
 		<!-- /container -->
 	</div>
 	<!-- /bg_color_1 -->
+
+	<div class="bg_color_1">
+		<div class="container margin_80_55">
+			<div class="main_title_2">
+				<span><em></em></span>
+				<h2>Venue</h2>
+
+			</div>
+			<div class="row justify-content-between">
+				<div class="col-lg-6 wow" data-wow-offset="150">
+					<center>
+						<h4><strong>Planning Menjadi Mudah dan<br> Cepat Secara Online.</strong></h4>
+					</center><br />
+					<figure class="block-reveal">
+						<div class="block-horizzontal"></div>
+						<img src="<?php echo base_url(); ?>assets/img/about_1.jpg" class="img-fluid" alt="">
+					</figure>
+				</div>
+				<div class="col-lg-5">
+					<button class="btn btn-sm" style="border-radius:0px; background-color:#00966C; color:#fff;"><i class="icon-search"></i></button>
+					<p style="margin-bottom: 15px">
+					<h5><strong>Pencarian mudah</strong></h5>
+					Fitur pencarian yang pintar dan menggunakan bahasa sederhana tanpa membingungkan proses pencarian
+					</p>
+					<button class="btn btn-sm" style="border-radius:0px; background-color:#FFB31C; color:#fff;"><i class="icon-money" style="color:#fff;"></i></button>
+					<p style="margin-bottom: 15px">
+					<h5><strong>Biaya terjangkau</strong></h5>
+					Terus bersaing dengan harga pasar agar pengguna merasakan pengalaman dengan harga rendah
+					</p>
+					<button class="btn btn-sm" style="border-radius:0px; background-color:#FD7185; color:#fff;"><i class="icon-user-1"></i></button>
+					<p style="margin-bottom: 15px">
+					<h5><strong>1500+ Mitra kerja</strong></h5>
+					Terus bersaing dengan harga pasar agar pengguna merasakan pengalaman dengan harga rendah
+					</p>
+				</div>
+			</div>
+			<!--/row-->
+		</div>
+		<!--/container-->
+	</div>
+	<!--/bg_color_1-->
+
+	<div class="bg_color_1">
+		<div class="container margin_80_55">
+			<div class="main_title_2">
+				<span><em></em></span>
+				<h2> Event </h2>
+
+			</div>
+			<div class="row justify-content-between">
+			<div class="col-lg-5">
+					<button class="btn btn-sm" style="border-radius:0px; background-color:#00966C; color:#fff;"><i class="icon-search"></i></button>
+					<p style="margin-bottom: 15px">
+					<h5><strong>Pencarian mudah</strong></h5>
+					Fitur pencarian yang pintar dan menggunakan bahasa sederhana tanpa membingungkan proses pencarian
+					</p>
+					<button class="btn btn-sm" style="border-radius:0px; background-color:#FFB31C; color:#fff;"><i class="icon-money" style="color:#fff;"></i></button>
+					<p style="margin-bottom: 15px">
+					<h5><strong>Biaya terjangkau</strong></h5>
+					Terus bersaing dengan harga pasar agar pengguna merasakan pengalaman dengan harga rendah
+					</p>
+					<button class="btn btn-sm" style="border-radius:0px; background-color:#FD7185; color:#fff;"><i class="icon-user-1"></i></button>
+					<p style="margin-bottom: 15px">
+					<h5><strong>1500+ Mitra kerja</strong></h5>
+					Terus bersaing dengan harga pasar agar pengguna merasakan pengalaman dengan harga rendah
+					</p>
+				</div>
+				<div class="col-lg-6 wow" data-wow-offset="150">
+					<center>
+						<h4><strong>Planning Menjadi Mudah dan<br> Cepat Secara Online.</strong></h4>
+					</center><br />
+					<figure class="block-reveal">
+						<div class="block-horizzontal"></div>
+						<img src="<?php echo base_url(); ?>assets/img/about_1.jpg" class="img-fluid" alt="">
+					</figure>
+				</div>
+				
+			</div>
+			<!--/row-->
+		</div>
+		<!--/container-->
+	</div>
+	<!--/bg_color_1-->
+
+	<div class="bg_color_1">
+		<div class="container margin_80_55">
+			<div class="main_title_2">
+				<span><em></em></span>
+				<h2>Talent</h2>
+
+			</div>
+			<div class="row justify-content-between">
+				<div class="col-lg-6 wow" data-wow-offset="150">
+					<center>
+						<h4><strong>Planning Menjadi Mudah dan<br> Cepat Secara Online.</strong></h4>
+					</center><br />
+					<figure class="block-reveal">
+						<div class="block-horizzontal"></div>
+						<img src="<?php echo base_url(); ?>assets/img/about_1.jpg" class="img-fluid" alt="">
+					</figure>
+				</div>
+				<div class="col-lg-5">
+					<button class="btn btn-sm" style="border-radius:0px; background-color:#00966C; color:#fff;"><i class="icon-search"></i></button>
+					<p style="margin-bottom: 15px">
+					<h5><strong>Pencarian mudah</strong></h5>
+					Fitur pencarian yang pintar dan menggunakan bahasa sederhana tanpa membingungkan proses pencarian
+					</p>
+					<button class="btn btn-sm" style="border-radius:0px; background-color:#FFB31C; color:#fff;"><i class="icon-money" style="color:#fff;"></i></button>
+					<p style="margin-bottom: 15px">
+					<h5><strong>Biaya terjangkau</strong></h5>
+					Terus bersaing dengan harga pasar agar pengguna merasakan pengalaman dengan harga rendah
+					</p>
+					<button class="btn btn-sm" style="border-radius:0px; background-color:#FD7185; color:#fff;"><i class="icon-user-1"></i></button>
+					<p style="margin-bottom: 15px">
+					<h5><strong>1500+ Mitra kerja</strong></h5>
+					Terus bersaing dengan harga pasar agar pengguna merasakan pengalaman dengan harga rendah
+					</p>
+				</div>
+			</div>
+			<!--/row-->
+		</div>
+		<!--/container-->
+	</div>
+	<!--/bg_color_1-->
 
 
 	<div class="container margin_60_35">
@@ -525,5 +662,79 @@
 		<!-- /container -->
 	</div>
 	<!-- /bg_color_1 -->
+
+	<div class="container margin_60_35">
+	<div class="main_title_2">
+			<span><em></em></span>
+			<h2><i class="bg-linear">Kontak</i></h2><br />
+			<p style="font-size:1rem;">Silahkan hubungi kami disini untuk informasi lebih lanjut.</p>
+		</div>
+		<div class="row justify-content-center">
+		
+			<div class="col-xl-5 col-lg-6 pr-xl-5">
+				<div class="main_title_3">
+					<span></span>
+					<h2>Kirim pesan anda </h2>
+					<p>Kami akan merespon dalam waktu cepat </p>
+				</div>
+				<div id="message-contact"></div>
+					<form method="post" action="assets/contact.php" id="contactform" autocomplete="off">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Name</label>
+									<input class="form-control" type="text" id="name_contact" name="name_contact">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Last name</label>
+									<input class="form-control" type="text" id="lastname_contact" name="lastname_contact">
+								</div>
+							</div>
+						</div>
+						<!-- /row -->
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Email</label>
+									<input class="form-control" type="email" id="email_contact" name="email_contact">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Telephone</label>
+									<input class="form-control" type="text" id="phone_contact" name="phone_contact">
+								</div>
+							</div>
+						</div>
+						<!-- /row -->
+						<div class="form-group">
+							<label>Message</label>
+							<textarea class="form-control" id="message_contact" name="message_contact" style="height:150px;"></textarea>
+						</div>
+					
+						<p class="add_top_30"><input type="submit" value="Submit" class="btn_1 rounded" id="submit-contact"></p>
+					</form>
+			</div>
+			<div class="col-xl-5 col-lg-6 pl-xl-5">
+				<div class="box_contacts">
+					<i class="ti-headphone"></i>
+					<h2>Telepon</h2>
+					<a href="contacts.html#0">0812 1238 4083</a>
+				</div>
+				<div class="box_contacts">
+					<i class="ti-email"></i>
+					<h2>Email</h2>
+					<a href="contacts.html#0">hallo@klikvanue.com</a>
+				</div>
+				<div class="box_contacts">
+					<i class="ti-home"></i>
+					<h2>Alamat</h2>
+					<a href="contacts.html#0">Ruko Inkopal Jl Raya Kramat No. 27 <br>Jakarta Pusat 12540.</a>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </main>

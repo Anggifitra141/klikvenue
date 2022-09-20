@@ -209,7 +209,7 @@
 	<!-- DATEPICKER  -->
 	<script>
 		$(function() {
-			$('input[name="dates"]').daterangepicker({
+			$('.dates').daterangepicker({
 				autoUpdateInput: false,
 				parentEl: '#input-dates',
 				opens: 'left',
@@ -217,10 +217,10 @@
 					cancelLabel: 'Clear'
 				}
 			});
-			$('input[name="dates"]').on('apply.daterangepicker', function(ev, picker) {
-				$(this).val(picker.startDate.format('MM-DD-YY') + ' > ' + picker.endDate.format('MM-DD-YY'));
+			$('.dates').on('apply.daterangepicker', function(ev, picker) {
+				$(this).val(picker.startDate.format('DD-MM-YYYY') + ' > ' + picker.endDate.format('DD-MM-YYYY'));
 			});
-			$('input[name="dates"]').on('cancel.daterangepicker', function(ev, picker) {
+			$('.dates').on('cancel.daterangepicker', function(ev, picker) {
 				$(this).val('');
 			});
 		});

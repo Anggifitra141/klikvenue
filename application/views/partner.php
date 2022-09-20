@@ -9,9 +9,6 @@
 				</div>
 			</div>
 			<div class="col-lg-9 col-12">
-				<ul id="top_menu">
-					<li><a href="<?php echo base_url(); ?>" class="btn_add">Buat Pesanan <i class="icon-edit-alt"></i></a></li>
-				</ul>
 				<a href="#menu" class="btn_mobile">
 					<div class="hamburger hamburger--spin" id="hamburger">
 						<div class="hamburger-box">
@@ -24,7 +21,7 @@
 						<li><span><a href="<?php echo base_url(); ?>">Beranda</a></span></li>
 						<li><span><a href="<?php echo base_url(); ?>">Tentang</a></span></li>
 						<li><span><a href="<?php echo base_url(); ?>">Venue</a></span></li>
-						<li><span><a href="<?php echo base_url(); ?>">Rent Equipment</a></span></li>
+						<li><span><a href="<?php echo base_url(); ?>">Event</a></span></li>
 						<li><span><a href="<?php echo base_url(); ?>">Talent</a></span></li>
 						<li><span><a href="<?php echo base_url(); ?>">Bermitra</a></span></li>
 					</ul>
@@ -356,62 +353,77 @@
 		<aside class="col-lg-4" id="sidebar">
 			<div class="box_detail booking">
 				<div class="price">
-					<span>45$ <small>person</small></span>
-					<div class="score"><span>Good<em>350 Reviews</em></span><strong>7.0</strong></div>
+					<span>Form </span>
+					<div class="score"><strong>Yuk, pesan sekarang</strong></div>
 				</div>
 
 				<div class="form-group" id="input-dates">
-					<input class="form-control" type="text" name="dates" placeholder="When..">
+					<input class="form-control dates" type="text" name="dates" placeholder="Untuk Kapan ?">
 					<i class="icon_calendar"></i>
 				</div>
-
+				<!--						
 				<div class="dropdown">
-					<a href="" data-toggle="dropdown">Guests <span id="qty_total">0</span></a>
+					<a href="" data-toggle="dropdown">Jumlah Orang <span id="qty_total">0</span></a>
 					<div class="dropdown-menu dropdown-menu-right">
 						<div class="dropdown-menu-content">
-							<label>Adults</label>
+							<label>Orang</label>
 							<div class="qty-buttons">
 								<input type="button" value="+" class="qtyplus" name="adults">
 								<input type="text" name="adults" id="adults" value="0" class="qty">
 								<input type="button" value="-" class="qtyminus" name="adults">
 							</div>
 						</div>
-						<div class="dropdown-menu-content">
-							<label>Childrens</label>
-							<div class="qty-buttons">
-								<input type="button" value="+" class="qtyplus" name="child">
-								<input type="text" name="child" id="child" value="0" class="qty">
-								<input type="button" value="-" class="qtyminus" name="child">
-							</div>
-						</div>
 					</div>
-				</div>
+				</div> -->
 				<!-- /dropdown -->
 
 				<div class="form-group">
-					<input class="form-control" type="number" name="room" placeholder="Total Room ">
-					<i class="icon-home-outline"></i>
+					<input class="form-control" type="number" name="room" placeholder="Jumlah Orang ?">
+					<i class="icon-users-1"></i>
 				</div>
+
 
 				<div class="form-group clearfix">
 					<div class="custom-select-form">
 						<select class="wide">
-							<option>Room Type</option>
+							<option>Jenis Paket / Produk</option>
 							<option>Single Room</option>
 							<option>Double Room</option>
 							<option>Suite Room</option>
 						</select>
 					</div>
 				</div>
-				<a href="checkout.html" class=" add_top_30 btn_1 full-width purchase">Purchase</a>
-				<a href="wishlist.html" class="btn_1 full-width outline wishlist"><i class="icon_heart"></i> Add to wishlist</a>
-				<div class="text-center"><small>No money charged in this step</small></div>
+				
+				<div class="form-group">
+					<input class="form-control" type="text" name="room" placeholder="Nama Pemesan">
+					<i class="icon-user-1"></i>
+				</div>
+
+				<div class="form-group">
+					<input class="form-control" type="text" name="room" placeholder="Nama Instansi (Opsional)">
+					<i class="icon-building"></i>
+				</div>
+
+				<div class="form-group">
+					<input class="form-control" type="number" name="room" placeholder="TLP / WA">
+					<i class="icon-phone-1"></i>
+				</div>
+
+				<div class="form-group">
+					<input class="form-control" type="email" name="room" placeholder="Email">
+					<i class="icon-email"></i>
+				</div>
+
+				<div class="form-group">
+					<textarea class="form-control" placeholder="Catatan tambahan"></textarea>
+					<i class="icon-edit-1"></i>
+				</div>
+
+
+				<a href="checkout.html" class=" add_top_30 btn_1 full-width purchase">Pesan <i class="icon-book"></i></a>
+				<div class="text-center"><small>Tidak ada biaya yang dibebankan dalam langkah ini</small></div>
 			</div>
-			<ul class="share-buttons">
-				<li><a class="fb-share" href="detail-carousel.html#0"><i class="social_facebook"></i> Share</a></li>
-				<li><a class="twitter-share" href="detail-carousel.html#0"><i class="social_twitter"></i> Share</a></li>
-				<li><a class="gplus-share" href="detail-carousel.html#0"><i class="social_googleplus"></i> Share</a></li>
-			</ul>
+
 		</aside>
 	</div>
 	<!-- /row -->
@@ -485,6 +497,8 @@
 								include += "<li><span class='icon-check' style='color:#32a067'></span>" + val + "</li>";
 							});
 							include += "</ul>";
+						}else{
+							include="";
 						}
 
 						if (value.equipment != "") {
@@ -495,6 +509,8 @@
 							});
 							equipment += "</ul>";
 							$("#equipment").append(equipment);
+						}else{
+							equipment="";
 						}
 
 						product += `<hr><div class="room_type">
