@@ -74,7 +74,7 @@
 						<ul>
 							<li>
 								<label class="container_check">Venue <small>123</small>
-									<input type="checkbox">
+									<input type="checkbox" name="">
 									<span class="checkmark"></span>
 								</label>
 							</li>
@@ -108,6 +108,7 @@
 						</div>
 					</div>
 					
+					
 				</div>
 				<!--/collapse -->
 			</div>
@@ -126,11 +127,17 @@
 
 <script>
 	$(document).ready(function() {
+		get_partner_list(<?php echo $param;?>);
 
+	});
+	
+
+	function get_partner_list(param){
 		$.ajax({
 			url: "<?php echo site_url('search/get_partner_list') ?>",
-			type: "GET",
+			type: "POST",
 			dataType: "JSON",
+			data : param,
 			success: function(data) {
 				var partner = '';
 
@@ -172,5 +179,5 @@
 				alert('Error get data from ajax');
 			}
 		});
-	})
+	}
 </script>
