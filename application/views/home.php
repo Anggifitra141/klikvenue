@@ -49,24 +49,16 @@
 											<div class="form-group">
 											<select class="wide" name="type">
 												<option value="">Apa yang kamu cari ?</option>	
-												<option value="venue">Venue</option>
-												<option value="event">Event</option>
-												<option value="talent">Talent</option>
+												<option value="Venue">Venue</option>
+												<option value="Event">Event</option>
+												<option value="Talent">Talent</option>
 											</select>
 												<i class="icon_search"></i>
 											</div>
 										</div>
 										<div class="col-lg-3">
-											<div class="form-group">
-												<select class="wide" name="city">
-													<option value="">Dimana ?</option>
-													<option value="jabodetabek">Jabodetabek</option>
-													<option value="jakarta">Jakarta</option>
-													<option value="bogor">Bogor</option>
-													<option value="depok">Depok</option>
-													<option value="tangerang">Tangerang</option>
-													<option value="bekasi">Bekasi</option>
-												</select>
+											<div class="form-group">											
+												<div id="list_city"></div>
 												<i class="icon_pin_alt"></i>
 											</div>
 										</div>
@@ -671,7 +663,7 @@
 		</div>
 		<div class="row justify-content-center">
 		
-			<div class="col-xl-5 col-lg-6 pr-xl-5">
+			<div class="col-xl-6 col-lg-6 pr-xl-5">
 				<div class="main_title_3">
 					<span></span>
 					<h2>Kirim pesan anda </h2>
@@ -717,7 +709,7 @@
 						<p class="add_top_30"><input type="submit" value="Submit" class="btn_1 rounded" id="submit-contact"></p>
 					</form>
 			</div>
-			<div class="col-xl-5 col-lg-6 pl-xl-5">
+			<div class="col-xl-6 col-lg-6 pl-xl-5">
 				<div class="box_contacts">
 					<i class="ti-headphone"></i>
 					<h2>Telepon</h2>
@@ -738,5 +730,31 @@
 	</div>
 
 </main>
+<script>
+	$(document).ready(function () {
+		
+		$.ajax({
+			url: "<?php echo site_url('search/get_city_list/')?>",
+			type: "GET",
+			dataType: "JSON",
+			async:true,
+			success: function(data) {
+				var options = '<select class="wide" name="city" id="city"><option value="">Dimana ?</option><option value="">Semua Kota</option>';
+					$.each(data, function(index, item) {
+						options += "<option value='"+item.name+"'>" + item.name+ "</option>";
+					});
+					options += "</select>" 
+					$('#list_city').html(options);
+					$('#city').niceSelect();
+			},
+			error: function(jqXHR, textStatus, errorThrown) {
+				alert('Error get data from ajax');
+			}
+		});
+
+	});
+</script>	
+
+
 
 

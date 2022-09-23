@@ -29,6 +29,7 @@
 	<link href="index.html#" id="colors" rel="stylesheet">
 	<!-- Jquery -->
 	<script src="<?php echo base_url(); ?>assets/js/common_scripts.js"></script>
+	
 </head>
 
 <body>

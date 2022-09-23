@@ -67,43 +67,16 @@
 		<aside class="col-lg-3" id="sidebar">
 			<div id="filters_col">
 				<a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters" id="filters_col_bt">Filters </a>
-
 				<div class="collapse show" id="collapseFilters">
 					<div class="filter_type">
 						<h6>Category</h6>
-						<ul>
-							<li>
-								<label class="container_check">Venue <small>123</small>
-									<input type="checkbox" name="">
-									<span class="checkmark"></span>
-								</label>
-							</li>
-							<li>
-								<label class="container_check">Event <small>56</small>
-									<input type="checkbox">
-									<span class="checkmark"></span>
-								</label>
-							</li>
-							<li>
-								<label class="container_check">Talent <small>33</small>
-									<input type="checkbox">
-									<span class="checkmark"></span>
-								</label>
-							</li>
-						</ul>
+						<div id="category"></div>
 					</div>
 					<div class="filter_type">
 						<h6>Kota</h6>
 						<div class="form-group clearfix">
 							<div class="custom-select-form">
-								<select class="wide">
-									<option>Jabodetabek</option>
-									<option>Jakarta</option>
-									<option>Bogor</option>
-									<option>Depok</option>
-									<option>Tangerang</option>
-									<option>Bekasi</option>
-								</select>
+								<div id="list_city"></div>
 							</div>
 						</div>
 					</div>
@@ -127,10 +100,90 @@
 
 <script>
 	$(document).ready(function() {
-		get_partner_list(<?php echo $param;?>);
+		var param = <?php echo $param?>;
+		get_category_list(param);
+		get_partner_list(param);
+		get_city_list(param);
+		
+		$('input[type="checkbox"]').change(function() {
+			var category_array = $('input[type=checkbox]:checked').map(function() {return this.value;}).get();
+			var city = $('#city').val();
+			var param = {
+				'type' : category_array,
+				'city' : city,
+				'date' : ""
+			}
+      get_partner_list(param);    
+    });
 
 	});
-	
+
+	//After DOM HTML
+	$('#list_city').on("change", "#city", function (event) {
+		var category_array = $('input[type=checkbox]:checked').map(function() {return this.value;}).get();
+			var city = $('#city').val();
+			var param = {
+				'type' : category_array,
+				'city' : city,
+				'date' : ""
+			}
+      get_partner_list(param);
+	});
+
+
+	function get_category_list(param){
+		$.ajax({
+			url: "<?php echo site_url('search/get_category_list/')?>",
+			type: "GET",
+			dataType: "JSON",
+			async:false,
+			success: function(data) {
+
+				if (data.name != "") {
+					var category = "";
+					category += "<ul>";
+
+					$.each(data, function(index, item) {
+						category += `<li>
+													<label class="container_check">`+item.name+`
+														<input type="checkbox" name="type" value="`+item.name+`">
+														<span class="checkmark"></span>
+													</label>
+												</li>`;
+					});
+					category += "</ul>";
+
+					$("#category").append(category);
+					$('input[value="'+param.type+'"]').prop("checked", true);
+				}
+			},
+			error: function(jqXHR, textStatus, errorThrown) {
+				alert('Error get data from ajax');
+			}
+		});
+	}
+
+	function get_city_list(param){
+		$.ajax({
+			url: "<?php echo site_url('search/get_city_list/')?>",
+			type: "GET",
+			dataType: "JSON",
+			success: function(data) {
+				
+				var options = '<select class="wide" name="city" id="city"><option value="">Dimana ?</option><option value="">Semua Kota</option>';
+					$.each(data, function(index, item) {
+						options += "<option value='"+item.name+"'>" + item.name+ "</option>";
+					});
+					options += "</select>" 
+					$('#list_city').html(options);
+					$('#city option[value="'+param.city+'"]').prop('selected', true);
+					$('#city').niceSelect();				
+			},
+			error: function(jqXHR, textStatus, errorThrown) {
+				alert('Error get data from ajax');
+			}
+		});
+	}
 
 	function get_partner_list(param){
 		$.ajax({

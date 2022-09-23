@@ -36,12 +36,23 @@ class Search extends CI_Controller {
 		if($city!=""){
 			$this->db->where('city.name', $city);
 		}
-		
-
-
 		$query = $this->db->get()->result();
-
 		echo json_encode($query);
+	}
+
+	public function get_category_list()
+	{
+		$this->db->select('*')->from('partner_category');
+		$query = $this->db->get()->result();
+		echo json_encode($query);
+	}
+
+	public function get_city_list()
+	{
+		$this->db->distinct();
+		$this->db->select('city.name')->from('city')->join('partner', 'city.id = partner.city_id');
+		$query = $this->db->get()->result();
+		echo json_encode($query);	
 	}
 
 

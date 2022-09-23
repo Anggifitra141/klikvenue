@@ -76,7 +76,7 @@
 			</section>
 			<!-- /section -->
 			<section id="term">
-				<div class="category_filter">
+				<div class="category_filter" id="terms">
 
 					<label class="container_radio">Ketentuan Pemesanan
 						<input type="radio" id="order-terms" name="categories_filter" value="order-terms" checked data-filter=".order-terms" class="selected">
@@ -467,7 +467,7 @@
 		$('.isotope-wrapper').isotope({
 			filter: '.order-terms'
 		});
-		$('.category_filter').on('click', 'input', 'change', function() {
+		$('#terms').on('click', 'input', 'change', function() {
 			var selector = $(this).attr('data-filter');
 			$('.isotope-wrapper').isotope({
 				filter: selector
